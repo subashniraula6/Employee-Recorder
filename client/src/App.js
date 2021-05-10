@@ -6,13 +6,16 @@ import EditEmployee from './components/layout/EditEmployee/EditEmployee'
 
 function App() {
   return (
-    <div className="App">
-      <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route exact path='/add-employee' component={AddEmployee} />
-        <Route exact path='/edit-employee' component={EditEmployee} />
-      </Switch>
-    </div>
+    <>
+      <h1 class='header'>Employee Recorder</h1>
+      <div className="App">
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/add-employee' component={AddEmployee} />
+          <Route exact path='/edit-employee' component={EditEmployee} />
+        </Switch>
+      </div>
+    </>
   );
 }
 

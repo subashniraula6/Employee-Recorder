@@ -3,8 +3,13 @@
   margin: 0;
   padding: 0;
 }
+
 .App {
   text-align: center;
+}
+
+div.App {
+  margin-top: 75px;
 }
 
 .App-logo {
@@ -15,6 +20,27 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+h1.header {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 50px;
+  height: 75px;
+  text-align: center;
+  background-color: grey;
+  color: aquamarine;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  h1.header {
+    height: 150px;
+  }
+  div.App {
+    margin-top: 150px;
   }
 }
 
@@ -37,6 +63,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

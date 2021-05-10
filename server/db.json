@@ -26,6 +26,24 @@
             "phone": "9842567567",
             "address": "Pokhara",
             "company": "Techyug" 
+        },
+        {
+            "id": 4,
+            "firstName": "Aakas",
+            "lastName": "Shrestha",
+            "email": "aakasshrestha6@gmail.com",
+            "phone": "98065742367",
+            "address": "Udaypur",
+            "company": "InfoTech" 
+        },
+        {
+            "id": 5,
+            "firstName": "Sandhya",
+            "lastName": "Adhikari",
+            "email": "sandhyaadhikari@gmail.com",
+            "phone": "9842567567",
+            "address": "Pokhara",
+            "company": "Techyug" 
         }
     ]
 }
