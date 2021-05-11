@@ -1,3 +1,12 @@
 {
-  "employees": []
+  "employees": [
+    {
+      "id": "5ffcc3-b7f2-f8db-8afd-63eeec0d585",
+      "name": "subash",
+      "email": "subashniraula6@gmail.com",
+      "phone": "977-9808067978",
+      "address": "Mulpani_kathmandu",
+      "company": "Subash Technology"
+    }
+  ]
 }

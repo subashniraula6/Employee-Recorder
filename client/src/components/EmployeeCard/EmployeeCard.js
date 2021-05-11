@@ -38,6 +38,14 @@ const EmployeeCard = ({
             alert("Unable to delete")
         }
     }
+    const handleEdit = async () => {
+        try {
+            await removeEmployee(id);
+        } catch (error) {
+            alert("Unable to delete")
+        }
+    }
+    console.log(id);
     return (
         <CardContainer add>
             {
@@ -79,7 +87,8 @@ const EmployeeCard = ({
                             </InfoContainer>
 
                             <ControlContainer>
-                                <EditCard />
+                                <Link to={`${history.location.pathname}/edit/${id}`}><EditCard /></Link>
+
                                 <NominateStatus>
                                     {
                                         isNominated ? (<RemoveNominationIcon />) : (<AddNominationIcon />)

@@ -14,7 +14,7 @@ function App() {
           <Route exact path='/' component={TestPage} />
           <Route exact path='/employees' component={HomePage} />
           <Route path='/employees/add' component={AddEmployee} />
-          <Route path='/employees/edit-employee' component={EditEmployee} />
+          <Route path='/employees/edit/:id' component={EditEmployee} />
         </Switch>
       </div>
     </>

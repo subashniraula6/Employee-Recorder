@@ -13,6 +13,7 @@ import {
 } from './AddEmployee.styles'
 import {connect} from 'react-redux'
 import {addEmployee} from '../../actions/employeeActions'
+import {Redirect} from 'react-router-dom'
 
 const AddEmployee = ({addEmployee}) => {
     const [employeeForm, setEmployeeForm] = useState(
