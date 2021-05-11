@@ -17,7 +17,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 `
-export const InputContainer = styled.form`
+export const InputContainer = styled.div`
 margin: 30px;
 width: 50%;
 display: flex;

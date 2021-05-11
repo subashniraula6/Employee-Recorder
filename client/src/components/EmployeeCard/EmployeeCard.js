@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import api from '../../api/api'
 import {
     CardContainer,
     EmployeeIcon,
@@ -18,23 +17,26 @@ import {
 } from './CardContainer.styles'
 
 const EmployeeCard = ({
-    id,
     isNominated,
-    firstName,
-    lastName,
+    name,
     email,
     address,
     phone,
     company,
     history,
     add }) => {
-    console.log(isNominated)
+    
+    const addLink = history.location.pathname + '/add';
     return (
         <CardContainer add>
             {
                 add ?
                     (<AddCard>
-                        <Link to='/add-employee' style={{ 'textDecoration': 'none' }}>+</Link>
+                        <Link
+                            to= {addLink}
+                            style={{ 'textDecoration': 'none' }}>
+                            +
+                            </Link>
                     </AddCard>)
                     : (
                         <>
@@ -42,7 +44,7 @@ const EmployeeCard = ({
 
                             <InfoContainer>
                                 <InfoKey>Name: </InfoKey>
-                                <InfoValue>{firstName + lastName}</InfoValue>
+                                <InfoValue>{name}</InfoValue>
                             </InfoContainer>
 
                             <InfoContainer>

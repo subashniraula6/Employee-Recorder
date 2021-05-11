@@ -1,54 +1,21 @@
 {
-    "employees": [
-        {
-            "id": 1,
-            "firstName": "Basanta",
-            "lastName": "Niraula",
-            "email": "subashniraula6@gmail.com",
-            "phone": "9808067978",
-            "address": "Kathmandu",
-            "company": "AuspNepit",
-            "isNominated": true
-        },
-        {
-            "id": 2,
-            "firstName": "Aakas",
-            "lastName": "Shrestha",
-            "email": "aakasshrestha6@gmail.com",
-            "phone": "98065742367",
-            "address": "Udaypur",
-            "company": "InfoTech",
-            "isNominated": false 
-        },
-        {
-            "id": 3,
-            "firstName": "Sandhya",
-            "lastName": "Adhikari",
-            "email": "sandhyaadhikari@gmail.com",
-            "phone": "9842567567",
-            "address": "Pokhara",
-            "company": "Techyug",
-            "isNominated": false 
-        },
-        {
-            "id": 4,
-            "firstName": "Aakas",
-            "lastName": "Shrestha",
-            "email": "aakasshrestha6@gmail.com",
-            "phone": "98065742367",
-            "address": "Udaypur",
-            "company": "InfoTech",
-            "isNominated": false 
-        },
-        {
-            "id": 5,
-            "firstName": "Sandhya",
-            "lastName": "Adhikari",
-            "email": "sandhyaadhikari@gmail.com",
-            "phone": "9842567567",
-            "address": "Pokhara",
-            "company": "Techyug",
-            "isNominated": true 
-        }
-    ]
+  "employees": [
+    {
+      "id": 1,
+      "name": "Basanta Niraula",
+      "email": "subashniraula6@gmail.com",
+      "phone": "9808067978",
+      "address": "Kathmandu",
+      "company": "AuspNepit",
+      "isNominated": true
+    },
+    {
+      "id": "afd0c3d-f33-bd30-8b40-e038f23b253",
+      "name": "subash",
+      "email": "subashniraula6@gmail.com",
+      "phone": "977-9808067978",
+      "address": "Mulpani",
+      "company": "Subash Technology"
+    }
+  ]
 }

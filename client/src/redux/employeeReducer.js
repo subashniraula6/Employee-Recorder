@@ -1,7 +1,7 @@
 const initial_state = {
     employees: [{
-        'firstName': 'subash',
-        'lastName': 'niraula',
+        'id': '1',
+        'name': 'subash niraula',
         'email': 'subashniraula6@gmail.com',
         'phone': '9808067978',
         'address': 'ktm',
@@ -9,7 +9,7 @@ const initial_state = {
     }]
 }
 
-export default function employeeReducer(state = initial_state, action) {
+export const employeeReducer = (state = initial_state, action) => {
     switch (action.type) {
         case 'GET_EMPLOYEES':
             return {
@@ -19,7 +19,7 @@ export default function employeeReducer(state = initial_state, action) {
         case 'ADD_EMPLOYEE':
             return {
                 ...state,
-                employees: state.employees.append(action.payload)
+                employees: state.employees.push(action.payload)
             }
         case 'REMOVE_EMPLOYEE':
             return {

@@ -8,13 +8,13 @@ import TestPage from './TestPage'
 function App() {
   return (
     <>
-      <h1 class='header'>Employee Recorder</h1>
+      <h1 className='header'>Employee Recorder</h1>
       <div className="App">
         <Switch>
           <Route exact path='/' component={TestPage} />
           <Route exact path='/employees' component={HomePage} />
-          <Route path='/add-employee' component={AddEmployee} />
-          <Route path='/edit-employee' component={EditEmployee} />
+          <Route path='/employees/add' component={AddEmployee} />
+          <Route path='/employees/edit-employee' component={EditEmployee} />
         </Switch>
       </div>
     </>
