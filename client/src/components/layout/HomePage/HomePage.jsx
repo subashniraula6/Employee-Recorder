@@ -12,7 +12,7 @@ import { employeesSelector } from '../../../redux/selectors/employeeSelector'
 const HomePage = ({ employees, getEmployees }) => {
     useEffect(() => {
         getEmployees();
-    }, [getEmployees])
+    }, [])
 
     return (
         <HomepageContainer>

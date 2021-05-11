@@ -1,21 +1,3 @@
 {
-  "employees": [
-    {
-      "id": 1,
-      "name": "Basanta Niraula",
-      "email": "subashniraula6@gmail.com",
-      "phone": "9808067978",
-      "address": "Kathmandu",
-      "company": "AuspNepit",
-      "isNominated": true
-    },
-    {
-      "id": "afd0c3d-f33-bd30-8b40-e038f23b253",
-      "name": "subash",
-      "email": "subashniraula6@gmail.com",
-      "phone": "977-9808067978",
-      "address": "Mulpani",
-      "company": "Subash Technology"
-    }
-  ]
+  "employees": []
 }
