@@ -1,38 +1,35 @@
 import React, { useState, useEffect } from 'react'
-import api from '../../../api/api'
+import PropTypes from 'prop-types'
 import EmployeeCard from '../../EmployeeCard/EmployeeCard';
 import {
     HomepageContainer
 } from './HomePage.styles'
+import { getEmployees } from '../../actions/employeeActions'
+import { connect } from 'react-redux'
+import TestPage from '../../../TestPage'
+import { createStructuredSelector } from 'reselect'
+import { employeesSelector } from '../../../redux/selectors/employeeSelector'
 
-const HomePage = () => {
-    const [employees, setEmployees] = useState([]);
-
-    //Retrieve Employees and set state
-    const retrieveEmployees = async () => {
-        const response = await api.get('/employees');
-        if (response.data) console.log(response.data);
-        return response.data;
-    }
-
-
+const HomePage = ({ employees, getEmployees }) => {
     useEffect(() => {
-        const retrieveAllEmployees = async () => {
-            const allEmployees = await retrieveEmployees();
-            setEmployees(allEmployees);
-        }
-        retrieveAllEmployees();
-    }, [])
+        getEmployees();
+    }, [getEmployees])
 
     return (
         <HomepageContainer>
             {
                 employees.map((employee) =>
-                    <EmployeeCard key={employee.id} {...employee}/>)
+                    <EmployeeCard key={employee.id} {...employee} />)
             }
-            <EmployeeCard add/>
+            <EmployeeCard add />
         </HomepageContainer>
     )
 }
-
-export default HomePage
+export const mapStateToProps = createStructuredSelector({
+    employees: employeesSelector
+})
+HomePage.propTypes = {
+    getEmployees: PropTypes.func.isRequired,
+    employees: PropTypes.object.isRequired
+}
+export default connect(mapStateToProps, { getEmployees })(HomePage)
