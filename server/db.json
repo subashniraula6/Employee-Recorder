@@ -7,7 +7,8 @@
             "email": "subashniraula6@gmail.com",
             "phone": "9808067978",
             "address": "Kathmandu",
-            "company": "AuspNepit" 
+            "company": "AuspNepit",
+            "isNominated": true
         },
         {
             "id": 2,
@@ -16,7 +17,8 @@
             "email": "aakasshrestha6@gmail.com",
             "phone": "98065742367",
             "address": "Udaypur",
-            "company": "InfoTech" 
+            "company": "InfoTech",
+            "isNominated": false 
         },
         {
             "id": 3,
@@ -25,7 +27,8 @@
             "email": "sandhyaadhikari@gmail.com",
             "phone": "9842567567",
             "address": "Pokhara",
-            "company": "Techyug" 
+            "company": "Techyug",
+            "isNominated": false 
         },
         {
             "id": 4,
@@ -34,7 +37,8 @@
             "email": "aakasshrestha6@gmail.com",
             "phone": "98065742367",
             "address": "Udaypur",
-            "company": "InfoTech" 
+            "company": "InfoTech",
+            "isNominated": false 
         },
         {
             "id": 5,
@@ -43,7 +47,8 @@
             "email": "sandhyaadhikari@gmail.com",
             "phone": "9842567567",
             "address": "Pokhara",
-            "company": "Techyug" 
+            "company": "Techyug",
+            "isNominated": true 
         }
     ]
 }

@@ -10,9 +10,9 @@ function App() {
       <h1 class='header'>Employee Recorder</h1>
       <div className="App">
         <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route exact path='/add-employee' component={AddEmployee} />
-          <Route exact path='/edit-employee' component={EditEmployee} />
+          <Route exact path='/employees' component={HomePage} />
+          <Route path='/add-employee' component={AddEmployee} />
+          <Route path='/edit-employee' component={EditEmployee} />
         </Switch>
       </div>
     </>
