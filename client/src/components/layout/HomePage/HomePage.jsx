@@ -5,7 +5,7 @@ import {
     MainContainer,
     HomepageContainer,
     Title,
-    CandidatesLink
+    CandidatesLink, ButtonGroup
 } from './HomePage.styles'
 import { getEmployees } from '../../actions/employeeActions'
 import { connect } from 'react-redux'
@@ -27,9 +27,16 @@ const HomePage = ({ employees, getEmployees }) => {
                 }
                 <EmployeeCard add />
             </HomepageContainer>
-            <CandidatesLink to='/employees/candidates'>
-                Click to see candidates for employee of the Month
+            
+            <ButtonGroup>
+                <CandidatesLink to='/employees/candidates'>
+                    Click to see candidates for employee of the Month
             </CandidatesLink>
+                <CandidatesLink to='/'>
+                    Back
+            </CandidatesLink>
+            </ButtonGroup>
+
         </MainContainer>
     )
 }

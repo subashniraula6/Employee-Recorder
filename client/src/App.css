@@ -33,6 +33,7 @@ h1.header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index:999999999;
 }
 
 @media screen and (max-width: 500px) {

@@ -21,8 +21,8 @@ color: green;
 margin: 40px 0 0 0;
 `
 export const CandidatesLink = styled(Link)`
-padding: 5px;
-margin: 30px 0 80px 0;
+padding: 7px 15px;
+margin: 10px 0;
 cursor: pointer;
 font-size: 18px;
 text-align: center;
@@ -33,4 +33,20 @@ text-decoration: none;
 display: flex;
 flex-direction: column;
 justify-content: center;
+height: 50px;
+
+box-shadow: 4px 4px 5px navy;
+transition: all 0.2s ease;
+
+&:hover {
+    height: 60px;
+    box-shadow: 2px 2px 3px navy;
+}
+`
+export const ButtonGroup = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-bottom: 50px;
 `
