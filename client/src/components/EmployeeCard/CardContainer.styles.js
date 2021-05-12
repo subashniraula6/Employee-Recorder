@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { FcFullTrash } from 'react-icons/fc'
 import { FiEdit } from 'react-icons/fi'
-import {VscStarFull, VscStarEmpty} from 'react-icons/vsc'
+import {VscStarFull} from 'react-icons/vsc'
 
 export const CardContainer = styled.div`
 width: 330px;
@@ -84,11 +84,9 @@ margin: 0 20px;
 cursor: pointer
 `
 
-export const RemoveNominationIcon = styled(VscStarFull)`
+export const Candidate = styled(VscStarFull)`
 height: 28px;
 width:  28px;
-`
-export const AddNominationIcon = styled(VscStarEmpty)`
-height: 28px;
-width:  28px;
+color: ${({iscandidate})=> ((iscandidate=== 'true') ? 'black': 'grey')}
+
 `

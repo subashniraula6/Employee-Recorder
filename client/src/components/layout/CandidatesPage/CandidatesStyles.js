@@ -1,28 +1,23 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const MainContainer = styled.div`
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-wrap: wrap;
-`
-export const HomepageContainer = styled.div`
-width: 100%;
-padding: 30px;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-wrap: wrap;
-`
 export const Title = styled.h1`
 color: green;
-margin: 40px 0 0 0;
+margin: 100px 0 0 0;
 `
-export const CandidatesLink = styled(Link)`
+
+export const CandidateContainer = styled.div`
+width: 100%;
+padding: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+`
+export const ButtonLink = styled(Link)`
+width: 20%;
 padding: 5px;
-margin: 30px 0 80px 0;
+margin: 10px;
 cursor: pointer;
 font-size: 18px;
 text-align: center;

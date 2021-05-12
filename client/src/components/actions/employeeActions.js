@@ -5,7 +5,6 @@ import uuid from 'react-uuid'
 export const getEmployees = () => async dispatch => {
     try {
         const response = await api.get('/employees');
-        console.log(response.data)
         if (response.data) {
             dispatch({
                 type: 'GET_EMPLOYEES',
@@ -36,6 +35,10 @@ export const addEmployee = (employeeForm) => async dispatch => {
                 payload: response.data
             })
             alert("Added")
+            dispatch({
+                type: 'GET_EMPLOYEES',
+                payload: response.data
+            })
         }
     } catch (error) {
         console.log(error)
@@ -67,9 +70,9 @@ export const removeEmployee = (id) => async dispatch => {
 }
 
 //Edit employee 
-export const editEmployee = (employeeForm) => async dispatch => {
+export const editEmployee = ({id, ...employeeForm}) => async dispatch => {
     try {
-        const response = await api.put(`/employees/${employeeForm.id}`, employeeForm);
+        const response = await api.put(`/employees/${id}`, employeeForm);
         console.log(response.data)
         if (response.data) {
             dispatch({
@@ -78,22 +81,6 @@ export const editEmployee = (employeeForm) => async dispatch => {
             })
             alert("Edited")
         }
-    } catch (error) {
-        console.log(error)
-        // dispatch({
-        //     type: EMPLOYEE_ERROR,
-        //     payload: { msg: error.response.statusText, status: error.response.status }
-        // })
-    }
-}
-//toggle candidate
-export const toggleCandidate = (isCandidate) => async dispatch => {
-    try {
-        dispatch({
-            type: 'T',
-            payload: response.data
-        })
-        alert("Edited")
     } catch (error) {
         console.log(error)
         // dispatch({

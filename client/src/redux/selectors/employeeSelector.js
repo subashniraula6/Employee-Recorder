@@ -8,12 +8,28 @@ export const employeesSelector = createSelector(
     employee => employee.employees
 )
 
-export const selectEmployee = employeeUrlParam => {
-    return createSelector(
+export const selectEmployee = createSelector(
         [employeesSelector],
         employees =>
             employees.find((employee) =>
-                employee.id === employeeUrlParam
+                employee.isCandidate === true
             )
     )
-}
+
+// export const selectCandidate = createSelector(
+//         [employeesSelector],
+//         employees =>
+//             employees.filter((employee) =>
+//                 employee.isCandidate === true
+//             )
+//     )
+
+// export const selectEmployee = employeeUrlParam => {
+//     return createSelector(
+//         [employeesSelector],
+//         employees =>
+//             employees.find((employee) =>
+//                 employee.id === employeeUrlParam
+//             )
+//     )
+// }

@@ -1,12 +1,5 @@
 const initial_state = {
-    employees: [{
-        'id': '1',
-        'name': 'subash niraula',
-        'email': 'subashniraula6@gmail.com',
-        'phone': '9808067978',
-        'address': 'ktm',
-        'isCandidate': false,
-    }]
+    employees: []
 }
 
 export const employeeReducer = (state = initial_state, action) => {
@@ -40,9 +33,10 @@ export const employeeReducer = (state = initial_state, action) => {
             return {
                 ...state,
                 employees: state.employees.map(employee => {
-                    if (employee.id === action.payload) {
+                    if (employee.id === action.payload.id) {
                         employee.isCandidate = !employee.isCandidate
                     }
+                    return employee
                 })
             }
         default:

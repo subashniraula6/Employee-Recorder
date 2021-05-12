@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import {
     CardContainer,
     EmployeeIcon,
@@ -12,14 +13,13 @@ import {
     EditCard,
     AddCard,
     NominateStatus,
-    AddNominationIcon,
-    RemoveNominationIcon
+    Candidate
 } from './CardContainer.styles'
 import { removeEmployee } from '../actions/employeeActions'
 
 const EmployeeCard = ({
     id,
-    isNominated,
+    isCandidate,
     name,
     email,
     address,
@@ -38,14 +38,7 @@ const EmployeeCard = ({
             alert("Unable to delete")
         }
     }
-    const handleEdit = async () => {
-        try {
-            await removeEmployee(id);
-        } catch (error) {
-            alert("Unable to delete")
-        }
-    }
-    console.log(id);
+
     return (
         <CardContainer add>
             {
@@ -90,9 +83,9 @@ const EmployeeCard = ({
                                 <Link to={`${history.location.pathname}/edit/${id}`}><EditCard /></Link>
 
                                 <NominateStatus>
-                                    {
-                                        isNominated ? (<RemoveNominationIcon />) : (<AddNominationIcon />)
-                                    }
+                                    <Candidate
+                                        iscandidate={isCandidate.toString()}
+                                    />
                                 </NominateStatus>
                                 <DeleteCard onClick={handleDelete} />
                             </ControlContainer>
@@ -102,6 +95,9 @@ const EmployeeCard = ({
 
         </CardContainer>
     )
+}
+EmployeeCard.propTypes = {
+    removeEmployee: PropTypes.func.isRequired
 }
 
 export default connect(null, { removeEmployee })(withRouter(EmployeeCard));

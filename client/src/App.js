@@ -4,6 +4,7 @@ import HomePage from './components/layout/HomePage/HomePage'
 import AddEmployee from './components/layout/AddEmployeePage/AddEmployee'
 import EditEmployee from './components/layout/EditEmployee/EditEmployee'
 import TestPage from './TestPage'
+import Candidates from './components/layout/CandidatesPage/Candidates'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path='/employees' component={HomePage} />
           <Route path='/employees/add' component={AddEmployee} />
           <Route path='/employees/edit/:id' component={EditEmployee} />
+          <Route path='/employees/candidates' component={Candidates} />
         </Switch>
       </div>
     </>

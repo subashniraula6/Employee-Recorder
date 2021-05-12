@@ -9,34 +9,49 @@ import {
     PhoneIcon,
     AddressIcon,
     CompanyIcon,
-    Button
+    Button,
+    Checkbox,
+    LabelCandidate,
+    ButtonLink
 } from './AddEmployee.styles'
-import {connect} from 'react-redux'
-import {addEmployee} from '../../actions/employeeActions'
-import {Redirect} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { addEmployee } from '../../actions/employeeActions'
+import { withRouter } from 'react-router-dom'
 
-const AddEmployee = ({addEmployee}) => {
+const AddEmployee = ({ addEmployee, history }) => {
     const [employeeForm, setEmployeeForm] = useState(
         {
             name: "",
             email: "",
             phone: "",
             address: "",
-            company: ""
+            company: "",
+            isCandidate: false
         }
     )
+    
     const {
         name,
         email,
         phone,
         address,
-        company
+        company,
+        isCandidate
     } = employeeForm;
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await addEmployee(employeeForm);
+            setEmployeeForm({
+                name: "",
+                email: "",
+                phone: "",
+                address: "",
+                company: "",
+                isCandidate: false
+            })
+            history.push('/employees');
         } catch (error) {
             console.log(error);
         }
@@ -49,8 +64,15 @@ const AddEmployee = ({addEmployee}) => {
             [name]: value
         })
         )
+        // console.log(employeeForm)
     }
-    
+    function toggleCheckbox(){
+        setEmployeeForm(employee=> ({
+            ...employee,
+            isCandidate: !employeeForm.isCandidate
+        }))  
+    }
+
     return (
         <AddEmployeeContainer>
             <h1
@@ -99,6 +121,7 @@ const AddEmployee = ({addEmployee}) => {
                         required
                     />
                 </InputContainer>
+                <p>Format: XXX-XXXXXXXXXX</p>
 
                 <InputContainer>
                     <AddressIcon />
@@ -125,7 +148,17 @@ const AddEmployee = ({addEmployee}) => {
                 </InputContainer>
 
                 <InputContainer>
+                    <LabelCandidate>Candidate?</LabelCandidate>
+                    <Checkbox
+                        type="checkbox"
+                        checked={isCandidate}
+                        onChange={toggleCheckbox}>
+                    </Checkbox>
+                </InputContainer>
+
+                <InputContainer>
                     <Button type='submit'> Submit </Button>
+                    <ButtonLink to="/employees"> Go Back </ButtonLink>
                 </InputContainer>
 
             </EmployeeForm>
@@ -133,4 +166,4 @@ const AddEmployee = ({addEmployee}) => {
     )
 }
 
-export default connect(null, {addEmployee})(AddEmployee)
+export default connect(null, { addEmployee })(withRouter(AddEmployee))

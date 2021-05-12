@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
+import {getEmployees} from '../../actions/employeeActions'
 import {employeesSelector} from '../../../redux/selectors/employeeSelector'
 import {createStructuredSelector} from 'reselect'
 import {
@@ -12,46 +13,59 @@ import {
     PhoneIcon,
     AddressIcon,
     CompanyIcon,
-    Button
+    Button,
+    ButtonLink,
+    LabelCandidate,
+    Checkbox
 } from './EditEmployee.styles'
 import {connect} from 'react-redux'
 import {editEmployee} from '../../actions/employeeActions'
-import {Redirect} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
-const EditEmployee = ({employees, editEmployee, history}) => {
+const EditEmployee = ({employees, editEmployee, getEmployees, history}) => {
     const [employeeForm, setEmployeeForm] = useState(
         {
-            name: "",
-            email: "",
-            phone: "",
-            address: "",
-            company: ""
+        name:'',
+        email:'',
+        phone:'',
+        address:'',
+        company:'',
+        isCandidate:false
         }
     )
 
     let {id} = useParams();
     
     useEffect(()=>{
-        if (employees){
-            const employee = employees.filter(employee => employee.id === id)
-            console.log(employee[0]);
-            setEmployeeForm(employee[0]);
-        }
-    }, [])
-    console.log(employeeForm);
+        getEmployees();
 
+            const employee = employees.filter(employee => employee.id === id)
+            setEmployeeForm(employee[0]);
+    }, [])
+
+    
     const {
         name,
         email,
         phone,
         address,
-        company
+        company,
+        isCandidate
     } = employeeForm;
 
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
             await editEmployee(employeeForm);
+            setEmployeeForm({
+                name: "",
+                email: "",
+                phone: "",
+                address: "",
+                company: "",
+                isCandidate: false
+            })
+            history.push('/employees');
         } catch (error) {
             console.log(error);
         }
@@ -64,6 +78,13 @@ const EditEmployee = ({employees, editEmployee, history}) => {
             [name]: value
         })
         )
+        console.log(employeeForm)
+    }
+    function toggleCheckbox(){
+        setEmployeeForm(employee=> ({
+            ...employee,
+            isCandidate: !employeeForm.isCandidate
+        }))  
     }
     
     return (
@@ -139,9 +160,19 @@ const EditEmployee = ({employees, editEmployee, history}) => {
                         required
                     />
                 </InputContainer>
+                
+                <InputContainer>
+                    <LabelCandidate>Candidate?</LabelCandidate>
+                    <Checkbox
+                        type="checkbox"
+                        checked={isCandidate}
+                        onChange={toggleCheckbox}>
+                    </Checkbox>
+                </InputContainer>
 
                 <InputContainer>
                     <Button type='submit'> Submit </Button>
+                    <ButtonLink to='/employees'> Go back </ButtonLink>
                 </InputContainer>
 
             </EmployeeForm>
@@ -152,4 +183,4 @@ export const mapStateToProps = createStructuredSelector({
     employees: employeesSelector
 })
 
-export default connect(mapStateToProps, {editEmployee})(EditEmployee)
+export default connect(mapStateToProps, {editEmployee, getEmployees })(withRouter(EditEmployee))

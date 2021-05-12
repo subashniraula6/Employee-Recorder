@@ -1,12 +1,22 @@
 {
   "employees": [
     {
-      "id": "5ffcc3-b7f2-f8db-8afd-63eeec0d585",
+      "id": "ddec5c-ab88-7d30-0ad0-7465fe74b23",
       "name": "subash",
       "email": "subashniraula6@gmail.com",
       "phone": "977-9808067978",
-      "address": "Mulpani_kathmandu",
-      "company": "Subash Technology"
+      "address": "Mulpani",
+      "company": "Subash Technology",
+      "isCandidate": false
+    },
+    {
+      "name": "subash",
+      "email": "subashniraula6@gmail.com",
+      "phone": "980-8067970888",
+      "address": "Mulpani",
+      "company": "Subash Technology123",
+      "isCandidate": true,
+      "id": "7586bbc-7a0f-e4a7-4e66-0cb43bfcd022"
     }
   ]
 }
