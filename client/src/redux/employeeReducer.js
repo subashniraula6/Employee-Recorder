@@ -1,5 +1,6 @@
 const initial_state = {
-    employees: []
+    employees: null,
+    loading: true
 }
 
 export const employeeReducer = (state = initial_state, action) => {
@@ -8,16 +9,19 @@ export const employeeReducer = (state = initial_state, action) => {
             return {
                 ...state,
                 employees: action.payload,
+                loading: false
             }
         case 'ADD_EMPLOYEE':
             return {
                 ...state,
-                employees: state.employees.push(action.payload)
+                employees: [state.employees, ...action.payload],
+                loading: false
             }
         case 'REMOVE_EMPLOYEE':
             return {
                 ...state,
-                employees: state.employees.filter(employee => employee.id !== action.payload)
+                employees: state.employees.filter(employee => employee.id !== action.payload),
+                loading: false
             }
         case 'EDIT_EMPLOYEE':
             return {
@@ -27,17 +31,8 @@ export const employeeReducer = (state = initial_state, action) => {
                         return action.payload;
                     }
                     else return employee;
-                })
-            }
-        case 'TOOGLE_CANDIDATE':
-            return {
-                ...state,
-                employees: state.employees.map(employee => {
-                    if (employee.id === action.payload.id) {
-                        employee.isCandidate = !employee.isCandidate
-                    }
-                    return employee
-                })
+                }),
+                loading: false
             }
         default:
             return state;

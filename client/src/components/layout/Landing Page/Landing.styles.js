@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 var green = '#2BAE66FF';
-var white = '#FCF6F5FF';
 
 export const LandingContainer = styled.div`
 position: relative;
@@ -14,7 +13,7 @@ align-items: center;
 `
 export const LandingImage = styled.img`
 width: 100vw;
-height: 100vh;
+height: 90vh;
 object-fit: cover;
 position: absolute;
 left: 0;

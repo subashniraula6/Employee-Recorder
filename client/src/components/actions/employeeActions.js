@@ -35,10 +35,6 @@ export const addEmployee = (employeeForm) => async dispatch => {
                 payload: response.data
             })
             alert("Added")
-            dispatch({
-                type: 'GET_EMPLOYEES',
-                payload: response.data
-            })
         }
     } catch (error) {
         console.log(error)
@@ -50,13 +46,14 @@ export const addEmployee = (employeeForm) => async dispatch => {
 }
 //Remove employee 
 export const removeEmployee = (id) => async dispatch => {
+    alert(id)
     try {
         const response = await api.delete(`/employees/${id}`);
         console.log(response.data)
         if (response.data) {
             dispatch({
                 type: 'REMOVE_EMPLOYEE',
-                payload: response.data
+                payload: id
             })
             alert("Removed")
         }

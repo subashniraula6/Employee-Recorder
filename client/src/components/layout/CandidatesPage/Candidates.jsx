@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { employeesSelector } from '../../../redux/selectors/employeeSelector'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
 import { getEmployees } from '../../actions/employeeActions'
-import { Link } from 'react-router-dom'
 import EmployeeCard from '../../EmployeeCard/EmployeeCard'
 import { CandidateContainer, Title, ButtonLink } from './CandidatesStyles'
 import { MainContainer } from '../HomePage/HomePage.styles'
@@ -13,7 +10,6 @@ const Candidates = ({ candidates, getEmployees }) => {
     useEffect(() => {
         getEmployees()
     }, [getEmployees])
-    console.log(candidates)
 
     return (
         <MainContainer>

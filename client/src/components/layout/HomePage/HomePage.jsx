@@ -9,25 +9,24 @@ import {
 } from './HomePage.styles'
 import { getEmployees } from '../../actions/employeeActions'
 import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
-import { employeesSelector } from '../../../redux/selectors/employeeSelector'
 
-const HomePage = ({ employees, getEmployees }) => {
+const HomePage = ({ employee, getEmployees }) => {
+    const { employees, loading } = employee;
+   
     useEffect(() => {
         getEmployees();
-    }, [])
-    return (
+    }, [getEmployees])
+    return !loading ? (
         <MainContainer>
             <Title>Employees List</Title>
             <HomepageContainer>
                 {
-                    employees ? (employees.map((employee) =>
-                        <EmployeeCard key={employee.id} {...employee} />)) :
-                        <h1>Loading</h1>
+                    (employees.map((employee) =>
+                        <EmployeeCard key={employee.id} {...employee} />))
                 }
                 <EmployeeCard add />
             </HomepageContainer>
-            
+
             <ButtonGroup>
                 <CandidatesLink to='/employees/candidates'>
                     Click to see candidates for employee of the Month
@@ -38,13 +37,14 @@ const HomePage = ({ employees, getEmployees }) => {
             </ButtonGroup>
 
         </MainContainer>
-    )
+    ) :
+        <h1>Loading.........</h1>
 }
-export const mapStateToProps = createStructuredSelector({
-    employees: employeesSelector
+export const mapStateToProps = state => ({
+    employee: state.employee
 })
 HomePage.propTypes = {
     getEmployees: PropTypes.func.isRequired,
-    employees: PropTypes.array.isRequired
+    employee: PropTypes.object.isRequired
 }
 export default connect(mapStateToProps, { getEmployees })(HomePage)

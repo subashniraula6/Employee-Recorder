@@ -64,7 +64,6 @@ const AddEmployee = ({ addEmployee, history }) => {
             [name]: value
         })
         )
-        // console.log(employeeForm)
     }
     function toggleCheckbox(){
         setEmployeeForm(employee=> ({
