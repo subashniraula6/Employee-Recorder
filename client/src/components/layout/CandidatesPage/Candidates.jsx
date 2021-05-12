@@ -24,7 +24,7 @@ const Candidates = ({ candidates, getEmployees, ...otherprops }) => {
     )
 }
 export const mapStateToProps = state => ({
-    candidates: state.employee.employees.filter(employee => employee.isCandidate === true)
+    candidates: state.employee.employees ? state.employee.employees.filter(employee => employee.isCandidate === true): []
 })
 
 export default connect(mapStateToProps, { getEmployees })(Candidates)
