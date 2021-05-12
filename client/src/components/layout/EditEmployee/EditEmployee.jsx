@@ -42,7 +42,7 @@ const EditEmployee = ({ employee, editEmployee, getEmployees, history }) => {
             const employee = employees.find(employee => employee.id === id)
             setEmployeeForm(employee);
         }
-    }, [])
+    }, [getEmployees, employees, id])
 
 
     const {

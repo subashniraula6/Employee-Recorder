@@ -10,6 +10,10 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+
+@media screen and (max-width: 650px){
+    margin-top: 20px;
+}
 `
 export const LandingImage = styled.img`
 width: 100vw;
@@ -21,6 +25,9 @@ top: 0;
 z-index: -999;
 background-position right bottom, left top;
 
+@media screen and (max-width: 650px){
+    height: 120vh;
+}
 `
 export const LandingHeader = styled.h1`
 font-size: 3.5rem;
@@ -28,6 +35,11 @@ margin: 20px;
 margin-top: 90px;
 color: #7698e8;
 -webkit-text-stroke: 2px #2c4d5c;
+
+@media screen and (max-width: 650px){
+    font-size: 2.0rem;
+    margin-top: 30px;
+}
 `
 export const LandingBody = styled.div`
 font-size: 2rem;
@@ -41,6 +53,9 @@ font-size: 1.4rem;
 width: 70%;
 margin: 30px;
 color: #5f7bad;
+@media screen and (max-width: 650){
+    font-size: 1rem;
+}
 `
 export const Navigation = styled.div`
 display: flex;
@@ -50,7 +65,9 @@ justify-content: center;
 align-items: center;
 list-style: none;
 width: 70%;
-
+@media screen and (max-width: 650){
+    width: 90%;
+}
 `
 export const ButtonLink = styled(Link)`
 font-size: 1rem;
