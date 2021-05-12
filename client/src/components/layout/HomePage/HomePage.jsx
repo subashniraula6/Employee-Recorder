@@ -10,9 +10,9 @@ import {
 import { getEmployees } from '../../actions/employeeActions'
 import { connect } from 'react-redux'
 
-const HomePage = ({ employee, getEmployees }) => {
+const HomePage = ({ employee, getEmployees, ...otherprops }) => {
     const { employees, loading } = employee;
-   
+    console.log(otherprops)
     useEffect(() => {
         getEmployees();
     }, [getEmployees])
@@ -28,7 +28,7 @@ const HomePage = ({ employee, getEmployees }) => {
             </HomepageContainer>
 
             <ButtonGroup>
-                <CandidatesLink to='/employees/candidates'>
+                <CandidatesLink to={`${otherprops.match.path}/candidates`}>
                     Click to see candidates for employee of the Month
             </CandidatesLink>
                 <CandidatesLink to='/'>

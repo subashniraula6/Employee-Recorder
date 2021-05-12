@@ -26,10 +26,9 @@ const EmployeeCard = ({
     phone,
     company,
     history,
+    match,
     add,
     removeEmployee }) => {
-
-    const addLink = history.location.pathname + '/add';
 
     const handleDelete = async () => {
         try {
@@ -45,7 +44,7 @@ const EmployeeCard = ({
                 add ?
                     (<AddCard>
                         <Link
-                            to={addLink}
+                            to={`${match.path}/add`}
                             style={{ 'textDecoration': 'none' }}>
                             +
                             </Link>
@@ -80,7 +79,7 @@ const EmployeeCard = ({
                             </InfoContainer>
 
                             <ControlContainer>
-                                <Link to={`${history.location.pathname}/edit/${id}`}><EditCard /></Link>
+                                <Link to={`${match.path}/edit/${id}`}><EditCard /></Link>
 
                                 <NominateStatus>
                                     <Candidate

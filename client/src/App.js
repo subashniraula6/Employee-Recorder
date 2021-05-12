@@ -16,7 +16,8 @@ function App() {
           <Route exact path='/employees' component={HomePage} />
           <Route path='/employees/add' component={AddEmployee} />
           <Route path='/employees/edit/:id' component={EditEmployee} />
-          <Route path='/employees/candidates' component={Candidates} />
+          <Route exact path='/employees/candidates' component={Candidates} />
+          <Route path='/employees/candidates/edit/:id' component={EditEmployee} />
         </Switch>
       </div>
     </>

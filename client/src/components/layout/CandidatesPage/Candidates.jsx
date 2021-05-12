@@ -5,8 +5,8 @@ import EmployeeCard from '../../EmployeeCard/EmployeeCard'
 import { CandidateContainer, Title, ButtonLink } from './CandidatesStyles'
 import { MainContainer } from '../HomePage/HomePage.styles'
 
-const Candidates = ({ candidates, getEmployees }) => {
-
+const Candidates = ({ candidates, getEmployees, ...otherprops }) => {
+    console.log(otherprops);
     useEffect(() => {
         getEmployees()
     }, [getEmployees])
