@@ -49,13 +49,11 @@ export const removeEmployee = (id) => async dispatch => {
     alert(id)
     try {
         const response = await api.delete(`/employees/${id}`);
-        console.log(response.data)
         if (response.data) {
             dispatch({
                 type: 'REMOVE_EMPLOYEE',
                 payload: id
             })
-            alert("Removed")
         }
     } catch (error) {
         console.log(error)
@@ -67,7 +65,7 @@ export const removeEmployee = (id) => async dispatch => {
 }
 
 //Edit employee 
-export const editEmployee = ({id, ...employeeForm}) => async dispatch => {
+export const editEmployee = ({ id, toggle, ...employeeForm }) => async dispatch => {
     try {
         const response = await api.put(`/employees/${id}`, employeeForm);
         console.log(response.data)
@@ -76,7 +74,10 @@ export const editEmployee = ({id, ...employeeForm}) => async dispatch => {
                 type: 'EDIT_EMPLOYEE',
                 payload: response.data
             })
-            alert("Edited")
+            if (!toggle) {
+                alert("Edited")
+            }
+
         }
     } catch (error) {
         console.log(error)

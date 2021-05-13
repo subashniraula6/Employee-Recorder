@@ -15,7 +15,7 @@ import {
     NominateStatus,
     Candidate
 } from './CardContainer.styles'
-import { removeEmployee } from '../actions/employeeActions'
+import { removeEmployee, editEmployee } from '../actions/employeeActions'
 
 const EmployeeCard = ({
     id,
@@ -28,7 +28,8 @@ const EmployeeCard = ({
     history,
     match,
     add,
-    removeEmployee }) => {
+    removeEmployee,
+    editEmployee }) => {
 
     const handleDelete = async () => {
         try {
@@ -81,7 +82,16 @@ const EmployeeCard = ({
                             <ControlContainer>
                                 <Link to={`${match.path}/edit/${id}`}><EditCard /></Link>
 
-                                <NominateStatus>
+                                <NominateStatus onClick={e => editEmployee({
+                                    id,
+                                    isCandidate: !isCandidate,
+                                    name,
+                                    email,
+                                    address,
+                                    phone,
+                                    company,
+                                    toggle: true
+                                })}>
                                     <Candidate
                                         iscandidate={isCandidate.toString()}
                                     />
@@ -99,4 +109,4 @@ EmployeeCard.propTypes = {
     removeEmployee: PropTypes.func.isRequired
 }
 
-export default connect(null, { removeEmployee })(withRouter(EmployeeCard));
+export default connect(null, { removeEmployee, editEmployee })(withRouter(EmployeeCard));

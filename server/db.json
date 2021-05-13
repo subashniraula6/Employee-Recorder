@@ -1,13 +1,3 @@
 {
-  "employees": [
-    {
-      "name": "Tanka Bahadur Sutar Karki",
-      "email": "subashniraula6@gmail.com",
-      "phone": "977-9808067978",
-      "address": "Mulpani",
-      "company": "Subash Technology123",
-      "isCandidate": false,
-      "id": "a6b754a-3f58-72c0-7f3-c781b4fb02aa"
-    }
-  ]
+  "employees": []
 }
